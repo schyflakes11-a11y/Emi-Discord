@@ -26,4 +26,5 @@ async def emi(prompt):
 intents = discord.Intents.default()
 intents.message_content = True
 client = Client(intents=intents)
-client.run(token)
+def start_bot():
+    bot.run(token)

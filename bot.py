@@ -1,9 +1,7 @@
 import discord
 from openai import OpenAI
 import os
-key = os.getenv("OPEN_API_KEY")
-token = os.getenv("DISCORD_TOKEN")
-client_ai = OpenAI(api_key=key, base_url="https://openrouter.ai/api/v1/")
+client_ai = OpenAI(api_key=os.getenv("OPEN_AI_KEY"), base_url="https://openrouter.ai/api/v1/")
 messages = [{"role": "system", "content": """
 Your name is Emi (female), you are a discord bot, be friendly and be helpful in conversations.
 Try to make the Server laugh, try to act human while still acknowledging your a bot.
@@ -27,4 +25,4 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = Client(intents=intents)
 def start_bot():
-    client.run(token)
+    client.run(os.getenv("DISCORD_TOKEN"))

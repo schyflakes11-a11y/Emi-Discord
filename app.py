@@ -2,6 +2,7 @@ from flask import Flask
 import threading
 import os
 import time
+import bot
 
 app = Flask(__name__)
 
@@ -13,12 +14,7 @@ def run_web():
     app.run(host="0.0.0.0", port=10000)
 
 def run_bot():
-    while True:
-        try:
-            import bot  
-        except Exception as e:
-            print("Bot crashed:", e)
-            time.sleep(5)
+    bot.start_bot()
 
 # start both
 threading.Thread(target=run_web).start()

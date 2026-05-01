@@ -18,4 +18,4 @@ def run_bot():
 
 # start both
 threading.Thread(target=run_web).start()
-run_bot()
+start_bot()

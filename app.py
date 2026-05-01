@@ -3,7 +3,7 @@ import threading
 import os
 import time
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route("/")
 def home():
@@ -15,7 +15,7 @@ def run_web():
 def run_bot():
     while True:
         try:
-            import bot  # runs your bot.py
+            import bot  
         except Exception as e:
             print("Bot crashed:", e)
             time.sleep(5)

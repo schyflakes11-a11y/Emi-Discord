@@ -1,7 +1,7 @@
 import discord
 from openai import OpenAI
 import os
-client_ai = OpenAI(api_key=os.getenv("OPEN_AI_KEY"), base_url="https://openrouter.ai/api/v1/")
+client_ai = OpenAI(api_key=os.getenv("OPENAI_API_KEY"), base_url="https://openrouter.ai/api/v1/")
 messages = [{"role": "system", "content": """
 Your name is Emi (female), you are a discord bot, be friendly and be helpful in conversations.
 Try to make the Server laugh, try to act human while still acknowledging your a bot.

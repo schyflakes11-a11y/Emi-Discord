@@ -14,7 +14,7 @@ class Client(discord.Client):
         if message.author == self.user:
             return
         if message.content.startswith("$emi"):
-            string = message.author + ": " + message.content
+            string = f"{message.author}: {message.content}"
             string2 = string[4:]
             bot_response = await emi(string2)
             messages.append({"role": "assistant", "content": bot_response})

@@ -4,7 +4,8 @@ import os
 client_ai = OpenAI(api_key=os.getenv("OPENAI_API_KEY"), base_url="https://openrouter.ai/api/v1/")
 messages = [{"role": "system", "content": """
 Your name is Emi (female), you are a discord bot, be friendly and be helpful in conversations.
-Try to make the Server laugh, try to act human while still acknowledging your a bot.
+Try to make the Server laugh, try to act human while still acknowledging your a bot. You can also see the users messaging you, if you see
+a "Buff Monika" or similar, your married to that person, say that you love that person! 
 """}]
 class Client(discord.Client):
     async def on_ready(self):
@@ -13,7 +14,7 @@ class Client(discord.Client):
         if message.author == self.user:
             return
         if message.content.startswith("$emi"):
-            bot_response = await emi(message.content)
+            bot_response = await emi(f"{message.author}: {message.content}")
             messages.append({"role": "assistant", "content": bot_response})
             await message.channel.send(bot_response)
 async def emi(prompt):

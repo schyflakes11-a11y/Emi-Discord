@@ -14,9 +14,7 @@ class Client(discord.Client):
         if message.author == self.user:
             return
         if message.content.startswith("$emi"):
-            string = f"{message.author}: {message.content}"
-            string2 = string[4:]
-            bot_response = await emi(string2)
+            bot_response = await emi(f"{message.author}: {message.content}")
             messages.append({"role": "assistant", "content": bot_response})
             await message.channel.send(bot_response)
 async def emi(prompt):
